@@ -7,5 +7,7 @@
 %Oscar Saravia
 %Donaldo Garcia
 
+%basic cases
 derivada(C,X,0):- number(C), atom(X).
 derivada(X,X,1):- atom(X).
+derivada(C*X,X,X):- number(C),atom(X).

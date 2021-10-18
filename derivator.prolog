@@ -25,9 +25,22 @@ derivada(C*U,X,C*X1):- number(C),derivada(U,X,X1). %cadena 4(x+1)
 
 
 %potencia
+
+derivada(e^X,X,e^X).
+derivada(e^U,X,e^U*DU) :- derivada(U, X, DU).
 derivada(X^C,X,C*X^T):-C>1,number(C), atom(X),T is C-1. %caso base x^2 falta casos x^(x+2)
 derivada(U^C,X,C*U^T*U1):-C>1,number(C), derivada(U,X,U1),T is C-1. %caso base x^2 falta casos x^(x+2)
 
+
+%falta euler, tan, sen, cos, arctan
+derivada(ln(X),X,1/X):- atom(X).
+derivada(ln(U),X,(1/U)*DU):- derivada(U,X,DU).
+
+
+
+%derivada tan
+derivada(tan(X),X,sec^2*(X)):-atom(X).
+derivada(tan(U),X,sec^2*(U)*DU) :- derivada(U, X, DU).
 
 
 %derivada de un producto

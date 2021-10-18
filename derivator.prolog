@@ -25,7 +25,9 @@ derivada(C*U,X,C*X1):- number(C),derivada(U,X,X1). %cadena 4(x+1)
 
 
 %potencia
-derivada(X^C,X,C*X^T):-C>1,number(C),atom(X), T is C-1. %caso base x^2 falta casos x^(x+2)
+derivada(X^C,X,C*X^T):-C>1,number(C), atom(X),T is C-1. %caso base x^2 falta casos x^(x+2)
+derivada(U^C,X,C*U^T*U1):-C>1,number(C), derivada(U,X,U1),T is C-1. %caso base x^2 falta casos x^(x+2)
+
 
 
 %derivada de un producto

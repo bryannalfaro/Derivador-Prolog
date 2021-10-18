@@ -22,6 +22,7 @@ derivada(X,X,1):- atom(X). %x
 derivada(C*X,X,C):- number(C),atom(X). %4x
 
 derivada(C*U,X,C*X1):- number(C),derivada(U,X,X1). %cadena 4(x+1)
+derivada(ln(C)*U,X,ln(C)*X1):- number(C),derivada(U,X,X1). %cadena ln(5)(x+5)
 
 
 %potencia
@@ -29,13 +30,14 @@ derivada(C*U,X,C*X1):- number(C),derivada(U,X,X1). %cadena 4(x+1)
 %derivada exponencial
 derivada(C^X,X,C^x*ln(C)):-atom(X),number(C).
 
-%FALTA ESTE CASO DE EXPONENCIAL CON EXPONENTE COMPUESTO
-derivada(C^U,X,DU):- number(C),derivada(e^(U*ln(C)),X,DU).
+%CASO DE EXPONENCIAL CON EXPONENTE COMPUESTO 5^3x
+derivada(C^U,X,DU):- number(C),derivada(e^(ln(C)*U),X,DU).
 
 derivada(e^X,X,e^X).
 derivada(e^U,X,e^U*DU) :- derivada(U, X, DU).
 
-%FALTA x^(x+2)
+
+derivada(X^U,X,DU):- derivada(e^(ln(X)*U),X,DU). %x^(x+2)
 derivada(X^C,X,C*X^T):-C>1,number(C), atom(X),T is C-1. %caso base x^2
 derivada(U^C,X,C*U^T*U1):-C>1,number(C), derivada(U,X,U1),T is C-1.  %cadena
 

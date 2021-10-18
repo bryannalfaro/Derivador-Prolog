@@ -40,7 +40,7 @@ derivada(X^C,X,C*X^T):-C>1,number(C), atom(X),T is C-1. %caso base x^2
 derivada(U^C,X,C*U^T*U1):-C>1,number(C), derivada(U,X,U1),T is C-1.  %cadena
 
 
-%falta euler, tan, sen, cos, arctan
+%logaritmo natural
 derivada(ln(X),X,1/X):- atom(X).
 derivada(ln(U),X,(1/U)*DU):- derivada(U,X,DU).
 

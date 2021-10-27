@@ -7,6 +7,12 @@
 %Oscar Saravia
 %Donaldo Garcia
 
+%referencia
+%https://github.com/wjur/sym-diff-prolog/blob/master/sym-diff.pl
+%http://www.cs.us.es/~jalonso/publicaciones/2006-int_prolog.pdf
+%http://www.nivaria.net/blog/index.php/prolog/383-derivada-de-una-funcion-entera
+%https://gist.github.com/tokkenno/8038482
+
 
 %derivada de sumar
 %casos 4x+3 , 4x+3x, 3+4x, 3(x+1)+2(x+3)
